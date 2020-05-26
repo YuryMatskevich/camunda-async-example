@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_0w9lvht" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:error id="Error_1z132cf" name="error_occure" errorCode="This is exception" camunda:errorMessage="This is exception" />
+  <bpmn:process id="secondProcess" isExecutable="true">
+    <bpmn:startEvent id="Event_05rn26p">
+      <bpmn:outgoing>Flow_00ds2gz</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_0e9lwen">
+      <bpmn:incoming>Flow_14obelt</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_14obelt" sourceRef="Activity_0v8gr7s" targetRef="Event_0e9lwen" />
+    <bpmn:sequenceFlow id="Flow_00ds2gz" sourceRef="Event_05rn26p" targetRef="Activity_0v8gr7s" />
+    <bpmn:serviceTask id="Activity_0v8gr7s" name="Proccess 2" camunda:delegateExpression="${secondProcessDelegate}">
+      <bpmn:incoming>Flow_00ds2gz</bpmn:incoming>
+      <bpmn:outgoing>Flow_14obelt</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="secondProcess">
+      <bpmndi:BPMNEdge id="Flow_00ds2gz_di" bpmnElement="Flow_00ds2gz">
+        <di:waypoint x="218" y="120" />
+        <di:waypoint x="280" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14obelt_di" bpmnElement="Flow_14obelt">
+        <di:waypoint x="380" y="120" />
+        <di:waypoint x="432" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_05rn26p_di" bpmnElement="Event_05rn26p">
+        <dc:Bounds x="182" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0e9lwen_di" bpmnElement="Event_0e9lwen">
+        <dc:Bounds x="432" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1a2vt2l_di" bpmnElement="Activity_0v8gr7s">
+        <dc:Bounds x="280" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
